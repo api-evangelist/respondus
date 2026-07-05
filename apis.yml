@@ -1,0 +1,46 @@
+aid: respondus
+url: https://raw.githubusercontent.com/api-evangelist/respondus/refs/heads/main/apis.yml
+name: Respondus
+kind: company
+description: Respondus builds assessment-integrity tools for online exams - most
+  notably LockDown Browser, a custom browser that locks down the testing environment,
+  and Respondus Monitor, an automated webcam-based online proctoring service that
+  adds AI-assisted review on top of LockDown Browser. Over 2,000 institutions across
+  50+ countries use Respondus to deliver hundreds of millions of online exams a
+  year. Respondus does not publish a self-service public developer API. Its products
+  reach learning platforms through LMS integration rather than an open REST surface -
+  native plugins/building blocks plus the IMS Global LTI (Learning Tools
+  Interoperability) standard for Blackboard, Brightspace, Canvas, Moodle, Sakai, and
+  Schoology, and a privately-licensed LockDown Browser SDK for third-party assessment
+  platforms that must be arranged through Respondus sales. No public OpenAPI,
+  developer keys, or documented endpoints are offered.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Assessment
+- Proctoring
+- Online Exams
+- LockDown Browser
+- Respondus Monitor
+- EdTech
+- LTI
+- LMS Integration
+- Exam Integrity
+created: '2026-07-05'
+modified: '2026-07-05'
+specificationVersion: '0.19'
+common:
+- type: Website
+  url: https://web.respondus.com
+- type: LinkedIn
+  url: https://www.linkedin.com/company/respondus
+- type: Support
+  url: https://support.respondus.com/hc/en-us
+- type: Partners
+  url: https://web.respondus.com/partners/lms/
+- type: SDK
+  url: https://web.respondus.com/partners/technology/sdk-licensing/
+- type: Plans
+  url: https://web.respondus.com/he/lockdownbrowser/pricing/
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

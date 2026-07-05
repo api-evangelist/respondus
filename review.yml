@@ -1,0 +1,107 @@
+aid: respondus
+name: Respondus
+review:
+  question: Does Respondus expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-05'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Respondus does not publish a public API of
+    any kind - REST or otherwise - so there is no server-push transport (WebSocket
+    or SSE) on a Respondus-owned public API to model. LockDown Browser and
+    Respondus Monitor reach institutions through LMS integration (native plugins /
+    building blocks and the LTI launch standard) and, for third-party platforms,
+    a privately-licensed LockDown Browser SDK. The realtime elements that exist
+    (a locked exam session, live/recorded webcam proctoring in Respondus Monitor)
+    are internal product mechanics between the Respondus client, the Respondus
+    cloud, and the LMS; they are not exposed as a documented public WebSocket
+    endpoint that a developer could connect to.
+findings:
+  summary: |
+    Respondus does not publish a documented public WebSocket API - and, more
+    broadly, does not publish a self-service public developer API at all. There is
+    no public REST surface, no developer key/console, no OpenAPI definition, and no
+    documented endpoints. Respondus is licensed institutional software (LockDown
+    Browser exam browser and Respondus Monitor automated webcam proctoring) that
+    integrates with a learning management system rather than being offered as an
+    API product. Integration happens via native LMS plugins/building blocks, the
+    IMS Global LTI standard (external tool / external app / LTI app), and a
+    privately-licensed LockDown Browser SDK for embedding the browser into other
+    assessment platforms. No public ws:// or wss:// endpoint - and no public REST
+    endpoint - is documented anywhere on Respondus's sites as of the review date.
+  publicApi: |
+    None documented. Respondus's own materials describe LTI, native LMS plugins,
+    and an SDK licensing program - not a public API. Where an API appears in a
+    Respondus integration it is the LMS vendor's API being consumed: for example,
+    Respondus Monitor on Blackboard Learn Ultra requires the institution to
+    configure Blackboard's own REST API and a Proctoring Service. That is Respondus
+    consuming a partner API, not exposing one.
+  integrationModel:
+    - approach: Native LMS plugin / building block
+      note: |
+        Out-of-the-box integrations for Blackboard Learn (Original and Ultra),
+        D2L Brightspace, Instructure Canvas, Moodle, Sakai, Schoology, and
+        Infinite Campus. A license admin installs/configures the plugin (~15 min).
+        The plugin communicates server-to-server with the Respondus cloud
+        (e.g. https://smc-service-cloud.respondus2.com). Private product
+        integration, not a documented public API.
+    - approach: LTI (Learning Tools Interoperability)
+      note: |
+        Added as an LTI external tool / external app / LTI app in supporting LMSs
+        rather than through a Respondus REST API. The exam-integrity behavior rides
+        the LTI launch and the LMS, not a Respondus public API.
+    - approach: LockDown Browser SDK (privately licensed)
+      note: |
+        Commercial, sales-gated SDK for embedding LockDown Browser into third-party
+        assessment/learning platforms (Windows, Mac, iPadOS, Chromebook). Described
+        as well-documented, but obtained by contacting Respondus - not a public,
+        self-service developer API with open docs or keys.
+  transports:
+    - protocol: REST
+      scheme: https
+      documented: false
+      note: No public Respondus REST API is documented. LMS integrations may consume the LMS vendor's REST API (e.g. Blackboard), not a Respondus-owned one.
+    - protocol: LTI
+      scheme: https
+      documented: true
+      note: IMS Global LTI launch used to add Respondus tools inside supporting LMS platforms. A launch standard, not a queryable API.
+    - protocol: SDK
+      scheme: n/a
+      documented: false
+      note: LockDown Browser SDK is a privately-licensed integration kit, not a public network API. Docs are provided under license, not publicly.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented on any Respondus public property as of the review date.
+  endpointsModeled: none
+  endpointsConfirmedRest: []
+sources:
+  - url: https://web.respondus.com/partners/lms/
+    type: Documentation
+    note: LMS integration overview - LTI standard plus native plugins for Blackboard, Brightspace, Canvas, Moodle, Schoology. No public API mentioned.
+  - url: https://web.respondus.com/partners/technology/sdk-licensing/
+    type: Documentation
+    note: LockDown Browser SDK licensing program - privately licensed, contact-sales SDK for third-party assessment platforms. Not a public API.
+  - url: https://support.respondus.com/hc/en-us/articles/4409595377179-Which-learning-management-systems-does-LockDown-Browser-integrate-with
+    type: Documentation
+    note: Supported LMS list and integration requirements (external tool / external app / LTI app; Blackboard Ultra requires its own REST API + Proctoring Service).
+  - url: https://support.respondus.com/hc/en-us/articles/29456577007003-Firewalls-Content-Filters-and-Proxy-Servers
+    type: Documentation
+    note: Network requirements - LMS integration reaches the Respondus cloud at https://smc-service-cloud.respondus2.com. Server-to-server, not a public API.
+  - url: https://web.respondus.com/he/lockdownbrowser/pricing/
+    type: Plans
+    note: Higher-ed pricing is a tiered annual institutional license by Student FTE - not per-API metering. Includes 200 free Respondus Monitor seats.
+  - url: https://www.linkedin.com/company/respondus
+    type: LinkedIn
+    note: Company profile - 2,000+ institutions across 50+ countries; assessment/proctoring focus. No developer/API program referenced.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    Respondus exposes no public API surface - no WebSocket and no REST. Its
+    products integrate through native LMS plugins, the LTI launch standard, and a
+    privately-licensed SDK, none of which is a documented public API. This entry is
+    an honest stub: apis.yml lists no APIs and no openapi/plans/rate-limits/finops/
+    collections artifacts were fabricated. No AsyncAPI document was created because
+    there is no Respondus-owned public server-push transport to model.
