@@ -29,6 +29,8 @@ created: '2026-07-05'
 modified: '2026-07-05'
 specificationVersion: '0.19'
 common:
+- type: DomainSecurity
+  url: security/respondus-domain-security.yml
 - type: Website
   url: https://web.respondus.com
 - type: LinkedIn
