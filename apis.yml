@@ -14,7 +14,18 @@ description: Respondus builds assessment-integrity tools for online exams - most
   Schoology, and a privately-licensed LockDown Browser SDK for third-party assessment
   platforms that must be arranged through Respondus sales. No public OpenAPI,
   developer keys, or documented endpoints are offered.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/respondus.png
 tags:
 - Assessment
 - Proctoring
