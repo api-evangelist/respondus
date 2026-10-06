@@ -48,9 +48,13 @@ tags:
 - LMS Integration
 - Exam Integrity
 created: '2026-07-05'
-modified: '2026-07-05'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 common:
+- url: https://web.respondus.com/news/
+  type: Blog
+- url: https://web.respondus.com/news/feed/
+  type: BlogRSS
 - type: DomainSecurity
   url: security/respondus-domain-security.yml
 - type: Website
